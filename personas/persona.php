@@ -1,16 +1,22 @@
-<?php $nivel_dir="../"; 
+<?php 
+//nivel dir para espisificar en que nivel nos escontramos usado para cargar otros scripts
+$nivel_dir="../"; 
+//la parte de ariva del script 
 require_once($nivel_dir.'template/pop.php');
+//cargar configuracion de la base de datos
 require_once($nivel_dir.'includes/config.php');
 ?>
 <script src="http://code.jquery.com/jquery-latest.min.js"
         type="text/javascript"></script>
 <?php
+//para cargar el mensaje que necesitamos
 $message=0;
-// connect to the mysql database server.
+// conneccion ala base de datos
 mysql_connect ($dbhost, $dbusername, $dbuserpass);
-//select the database
+//selecionar base de datos
 mysql_select_db($dbname) or die('Cannot select database'); 
 
+//cargar informacion de mysql para edicion
 if(isset($_GET['id']))
 {
     $id=$_GET['id'];
